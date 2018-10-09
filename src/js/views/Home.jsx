@@ -14,7 +14,7 @@ import SchoolServingPng from '../../img/asset41.jpeg';
 import GhrsDesignPng from '../../img/asset42.png';
 import {getAllCategories, store} from "../flux.js";
 import  { Animation }  from 'mdbreact';
-import '../../styles/ListGroupItem.scss';
+import '../../styles/HomeStyles.scss';
 
 export default class Home extends Flux.DashView {
   constructor(){
@@ -57,12 +57,15 @@ export default class Home extends Flux.DashView {
 
             {//* Product Categories go here.
             }
-            <ul>
+            <ul className="category-animated-div">
                 <Animation type="slideInRight" delay="1.1s">
                     {this.state.categories.map(c => (
-                        <ListGroupItem key={c.id}>
-                            <Link to={'category/'+ c.slug}> {c.name}</Link>
-                        </ListGroupItem>
+                        <Link 
+                        to={'category/'+ c.slug} 
+                        key={c.id} 
+                        >
+                            <ListGroupItem className="hvr-grow-shadow">{c.name}</ListGroupItem>
+                        </Link>
                     ))}
                 </Animation>
             </ul>
