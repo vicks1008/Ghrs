@@ -89,7 +89,7 @@ class ProductView(APIView):
             
         
 class ShoppingcartView(APIView):
-    def get(self, request, user_id = None, product_id = None, shoppingcart_id=None):
+    def get(self, request, user_id = None, product_id = None):
 
         if user_id is not None:
             shoppingcart = Shoppingcart.objects.filter(user=user_id)
@@ -129,25 +129,29 @@ class ShoppingcartView(APIView):
         #all for that user 
         ##if user_id is not None and product_id is None:
                                    #__ bc its a sub property
-        shoppingcart_set = Shoppingcart.objects.filter(user__id=user_id)
-        shoppingcart_set.delete()
         
         #if there's a product id and a user id 
         if product_id is not None and user_id is not None: 
+            shoppingcart_set = Shoppingcart.objects.filter(user__id=user_id, product__id=product_id)
+            shoppingcart_set.delete()
             return Response(serializer.data, status=status.HTTP_200_OK)
          
         #elif = else if 
         #prod id no user id 
         elif product_id is not None and user_id is None:   
+            shoppingcart_set = Shoppingcart.objects.filter(product__id=product_id)
+            shoppingcart_set.delete()
             return Response(serializer.data, status=status.HTTP_200_OK)
         
         #when there is both
         elif product_id is not None and user_id is not None:   
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response("needs a user id", status=status.HTTP_400_BAD_REQUEST)
         
         #no prod id but there is a user id 
         elif product_id is None and user_id is not None:   
-            return Response("needs a user id", status=status.HTTP_400_BAD_REQUEST)
+            shoppingcart_set = Shoppingcart.objects.filter(user__id=user_id)
+            shoppingcart_set.delete()
+            return Response(serializer.data, status=status.HTTP_200_OK)
         
         #if there's no user id or prod id 
         elif product_id is None and user_id is None: 
