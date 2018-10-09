@@ -10,7 +10,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./views/Home.jsx";
 import Product from "./views/Product.jsx";
 import ProductCategory from "./components/ProductCategory.jsx";
-import Login2 from "./views/Login2.jsx";
+import Register from "./views/Login2.jsx";
 import ShoppingCart from "./views/ShoppingCart.jsx";
 import Payments from "./views/Payments.jsx";
 import NavbarComponent from './components/navbar/NavbarComponent.js';
@@ -49,8 +49,8 @@ export default class Layout extends Flux.DashView {
                             <Route exact path="/product/:product_slug" component={Product} />
                             <Route exact path="/cart" component={ShoppingCart} />
                             <Route exact path="/checkout" component={Payments} />
-                            <Route exact path="/register" component={Login2} />
                             <Route exact path="/about-us" component={Home} />
+                            <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />
                             
                             {/* for the last Rout we don't specify any path because we want it to render if no other path have matched */}
