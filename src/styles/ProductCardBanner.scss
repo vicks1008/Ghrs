@@ -1,0 +1,21 @@
+.column {
+    width: 33.33%;;
+    float: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row {
+    text-align: center;
+}
+
+//imgs
+//had trouble centering the pictures, this centered it bc the float was left
+.rounded {
+    margin-left: 25%;
+}

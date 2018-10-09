@@ -13,6 +13,7 @@ import '../styles/login.scss';
 import '../styles/AboutThisItem.scss';
 import '../styles/NavbarComponent.scss';
 import '../styles/ProductCard.scss';
+import '../styles/ProductCardBanner.scss';
 
 
 //import your own components
