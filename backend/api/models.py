@@ -37,8 +37,8 @@ class Rating(models.Model):
     rating_int = models.IntegerField(default=0, blank=True)
     comment = models.CharField(max_length=200, default="")
 
-class ShoppingCart(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+class Shoppingcart(models.Model):
+    product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, blank=True)
     quantity = models.IntegerField(default=0, blank=True)
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -52,6 +52,7 @@ class Special(models.Model):
         max_digits=2, decimal_places=1, default=0, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
 class Coupon(models.Model):
     expiration = models.DateTimeField(auto_now_add=True)
@@ -67,8 +68,8 @@ class Transaction(models.Model):
         Product, on_delete=models.CASCADE, blank=True)
     special = models.ForeignKey(
         Special, on_delete=models.CASCADE, blank=True)
-    shoppingCart = models.ForeignKey(
-        ShoppingCart, on_delete=models.CASCADE, blank=True)
+    shoppingcart = models.ForeignKey(
+        Shoppingcart, on_delete=models.CASCADE, blank=True)
     coupon = models.ForeignKey(
         Coupon, on_delete=models.CASCADE, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -101,15 +102,15 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ('id', 'name', 'products', 'slug', 'description')
         
-class ShoppingCartSerializer(serializers.ModelSerializer):
+class ShoppingcartSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ShoppingCart
-        fields = ('id',  'product','user','quantity', 'unit_price', 'tracking')
+        model = Shoppingcart
+        exclude = ()
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-        fields = ('id', 'product', 'user', 'rating_int', 'comment')
+        exclude = ()
         
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -124,10 +125,19 @@ class PurchaseSerializer(serializers.ModelSerializer):
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ('id', 'product')
+        exclude = ()
 
 class SpecialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Special
         exclude = ()
+
+class CouponSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Coupon
+        fields = ('expiration', 'usage_count','created_at', 'updated_at', 'id')
+         
+
+ 
+ 
 
