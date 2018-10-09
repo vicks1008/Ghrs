@@ -15,6 +15,7 @@ import GhrsDesignPng from '../../img/asset42.png';
 import {getAllCategories, store} from "../flux.js";
 import  { Animation }  from 'mdbreact';
 import '../../styles/HomeStyles.scss';
+import ProductCardBanner from '../components/ProductCardBanner.jsx';
 
 export default class Home extends Flux.DashView {
   constructor(){
@@ -72,6 +73,7 @@ export default class Home extends Flux.DashView {
             {//* Product Cards go here.
             }
             <Animation type="slideInRight" delay="1.2s">
+                <ProductCardBanner/>
                 <ProductCard />
             </Animation>
             <Animation type="slideInRight" delay="1.3s">
