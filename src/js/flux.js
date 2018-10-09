@@ -1,7 +1,7 @@
 /* global fetch */
 import Flux from "@4geeksacademy/react-flux-dash";
 
-const HOST = 'https://general-restaurant-app-vicks1008.c9users.io:8081/api';
+const HOST = 'https://fierce-mountain-32300.herokuapp.com/api';
 
 export const getAllCategories = () => {
     fetch(HOST + '/category')
@@ -18,7 +18,7 @@ export const getAllCategories = () => {
 };
 
 export const addContact = (contact) => {
-    fetch('https://first-django-vicks1008.c9users.io:8081/api/contacts/', 
+    fetch(HOST+'/contacts', 
     { 
         method: 'POST',
         headers: {
@@ -45,7 +45,7 @@ export const addContact = (contact) => {
 
 
 export const deleteContact = (contact) => {
-    fetch('https://first-django-vicks1008.c9users.io:8081/api/contacts/'+contact.id, 
+    fetch(HOST+'/contacts'+contact.id, 
     {   method: 'DELETE'}
     )
       .then(function(response) {
@@ -63,7 +63,7 @@ export const deleteContact = (contact) => {
 };
 
 export const editContact = (contact) => {
-      fetch("https://first-django-vicks1008.c9users.io:8081/api/contacts/"+contact.id, 
+      fetch(HOST+"/contacts"+contact.id, 
       {
           method: "PUT",
           headers: {
