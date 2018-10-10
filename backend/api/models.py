@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.db import models
 from django.contrib.auth.models import User
+from django_extensions.db.fields import AutoSlugField
 
 # Create your models here. 
 ACTIVE = 'ACTIVE'
@@ -35,7 +36,7 @@ class Product(models.Model):
     manufacturer = models.CharField(max_length=50, default="")
     price = models.IntegerField(default=0, blank=True)
     quantity = models.IntegerField(default=0, blank=True)
-    slug = models.SlugField(max_length=150, unique=True ,db_index=True)
+    slug = AutoSlugField(null=True, default=None, unique=True, populate_from='name')
 #dont need a product category bc its an intermediate model, because it is so common, Django 
 #already does it for you, automatically because there are two foreign keys.
 

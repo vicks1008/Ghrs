@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import GeneralLogo from '../../../img/general-logo-with-tag.png';
+import { browserHistory, withRouter } from 'react-router';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom'; 
+
 
 class NavbarComponent extends React.Component {
-    render(){
+   constructor(){
+        super();
+    }
+  
+    
+    render() {
         return(
-            <div>    
+            <div> 
                 <nav className="navbar navbar-default" role="navigation">
-                    <a className="navbar-brand" href="#"><img src={GeneralLogo} /></a>
+                    <a onClick={() =>this.props.history.push("/home")} className="navbar-brand" href="#"><img src={GeneralLogo} /></a>
                     <div className="menuButtons">
-                        <button className="shoppingCart"><i className="fas fa-shopping-cart fa-1x"></i></button>
-                        <button className="login">Log In</button>
-                        <button className="signup">Sign Up</button>
-                    </div>
+                        <button onClick={() =>this.props.history.push("/cart")} className="shoppingCart"><i className="fas fa-shopping-cart"></i></button>
+                        <div className="dropdown show">
+                            <button className="userButton"><i className="fas fa-user fa-1x"></i></button>
+                            <div className="dropdown-content">
+                                <a onClick={() =>this.props.history.push("/register")}href="#">Sign Up</a>
+                                <a onClick={() =>this.props.history.push("/login")}href="#">Login</a>
+                            </div>
+                        </div>
+                    </div>    
                 </nav>
                 <form className="searchBarContainer">
                     <input className="searchInput" type="text" placeholder="Search"/>  
@@ -20,7 +34,8 @@ class NavbarComponent extends React.Component {
             );
     }
 }
-export default NavbarComponent;
-
-
-//need to make new component for search bar bc it doesnt fit in the navbar
+export default withRouter(NavbarComponent) ;
+NavbarComponent.propTypes =
+{
+    history: PropTypes.object
+}; 

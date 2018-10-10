@@ -10,7 +10,7 @@ class Specials extends React.Component {
     return(
         <div className="carouselBox">
             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                <div classNameName="carousel-inner">
+                <div className="carousel-inner">
                     <div className="carousel-item active">
                         <img className="d-block " src="https://bit.ly/2owXAvu" alt="First slide"/>
                     </div>
