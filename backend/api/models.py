@@ -35,7 +35,7 @@ class Product(models.Model):
     manufacturer = models.CharField(max_length=50, default="")
     price = models.IntegerField(default=0, blank=True)
     quantity = models.IntegerField(default=0, blank=True)
-
+    slug = models.SlugField(max_length=150, unique=True ,db_index=True)
 #dont need a product category bc its an intermediate model, because it is so common, Django 
 #already does it for you, automatically because there are two foreign keys.
 
@@ -118,7 +118,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'img','title','description', 'productRating', 'manufacturer', 'price', 'quantity')
+        fields = ('id', 'img','title','description', 'productRating', 'manufacturer', 'price', 'quantity', 'slug')
        
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
