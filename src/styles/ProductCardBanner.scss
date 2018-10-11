@@ -1,21 +1,46 @@
-.column {
-    width: 33.33%;;
-    float: left;
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+
+
+//IMAGES COLUMN and ROW -----------------------------------
+
+.flex-row {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.flex-col {
+  margin: 6px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+  box-sizing:border-box;
 }
 
-.row {
+@media (max-width:767px) {
+  .flex-col {
+    flex-basis: calc(50% - 12px);
+  }
+}
+
+@media (max-width:460px) {
+  .flex-col {
+    flex-basis: 100%;
+  }
+}
+
+.vet-spec-container{
+    max-width: 75%;
+}
+
+
+//HEADER -----------------------------------
+.productBannerHeader{
+    font-family: 'Bitter', serif;
+    padding-top: 10px;
     text-align: center;
-}
-
-//imgs
-//had trouble centering the pictures, this centered it bc the float was left
-.rounded {
-    margin-left: 25%;
 }
