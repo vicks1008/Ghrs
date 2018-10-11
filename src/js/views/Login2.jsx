@@ -3,13 +3,22 @@ import React from 'react';
 //import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
-class LoginForm extends React.Component{
+export default class LoginForm extends React.Component{
     constructor(){
         super();
         this.state = {
             data: {
-                email: '',
-                password: ''
+                first_name : '',
+                last_name : '',
+                email : '',
+                password: '',
+                address : '',
+                address2: '',
+                city: '',
+                state: '',
+                zip: '',
+                phone : '',
+                type: ''
             },
             loading: false,
             errors: {}
@@ -21,6 +30,16 @@ class LoginForm extends React.Component{
         
         return (
             <div className ="container">
+                <div className="form-row">
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputFirstName">First Name</label>
+                        <input type="text" className="form-control" id="inputFirstName" placeholder="First Name"></input>
+                    </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputLastName">Last Name</label>
+                        <input type="text" className="form-control" id="inputLastName" placeholder="Last Name"></input>
+                    </div>
+                </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="inputEmail4">Email</label>
@@ -38,20 +57,6 @@ class LoginForm extends React.Component{
                 <div className="form-group">
                     <label htmlFor="inputAddress2">Address 2</label>
                     <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
-                </div>
-                <div className = "form-row">
-                    <div className="form-group col-md-2">
-                        <label htmlFor="inputPhone">Phone</label>
-                        <input type="text" className="form-control" id="inputPhone" placeholder="(000)-000-0000"></input>
-                    </div>
-                    <div className="form-group col-md-2">
-                        <label htmlFor = "typePhone">Type</label>
-                        <select id = "inputTypePhone" className = "form-control">
-                            <option selected> Home </option>
-                            <option value='cellphone'> Cellphone </option>
-                            <option value='work'> Work </option>
-                        </select>
-                    </div>
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-6">
@@ -113,13 +118,25 @@ class LoginForm extends React.Component{
                             <option value="WV">West Virginia</option>
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
-
-
                         </select>
                     </div>
                     <div className="form-group col-md-2">
                         <label htmlFor="inputZip">Zip</label>
                         <input type="text" className="form-control" id="inputZip"></input>
+                    </div>
+                </div>
+                <div className = "form-row">
+                    <div className="form-group col-md-2">
+                        <label htmlFor="inputPhone">Phone</label>
+                        <input type="text" className="form-control" id="inputPhone" placeholder="(000) 000-0000"></input>
+                    </div>
+                    <div className="form-group col-md-2">
+                        <label htmlFor = "typePhone">Type</label>
+                        <select id = "inputTypePhone" className = "form-control">
+                            <option selected> Home </option>
+                            <option value='cellphone'> Cellphone </option>
+                            <option value='work'> Work </option>
+                        </select>
                     </div>
                 </div>
                 <div className="form-group">
@@ -137,6 +154,3 @@ class LoginForm extends React.Component{
         );
     }
 }
-
-
-export default LoginForm;
