@@ -26,7 +26,9 @@ class ProductCardBanner extends React.Component {
     
     return ( 
         <div className="vet-spec-container">
-            <h3 className="productBannerHeader">Veteran&#x27;s Day Special</h3>
+            <div className="product-header-container" >
+                <h3 className="productBannerHeader">Veteran&#x27;s Day Special</h3>
+            </div>
             <div className="flex-row">
                 <div className="flex-col"><img src={SpecImage1} className="img1" alt="..."/></div>
                 <div className="flex-col"><img src={SpecImage2} className="img2" alt="..."/></div>

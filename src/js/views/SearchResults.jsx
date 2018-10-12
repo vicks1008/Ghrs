@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard.jsx';
 import PropTypes from 'prop-types';
 
 
-export default class CategoryView extends Flux.DashView {
+class SearchResults extends Flux.DashView {
     constructor(){
         super();
         this.state = {
@@ -15,30 +15,19 @@ export default class CategoryView extends Flux.DashView {
     }
     
     componentDidMount(){
-        let categories = store.getState('category');
-        if(categories) {
-            let category = categories.find((c) => {
-                return (c.slug == this.props.match.params.category_slug);
-              });
-            this.setState({category});
-        }
-        this.subscribe(store, 'category', (categories) => {
-            let category = categories.find((c) => {
-                return (c.slug == this.props.match.params.category_slug);
-              });
-            this.setState({category});
-        });
+        console.log(this.props.match.params.query);
     }
     
     render() {
         return (
-            <div className="p-5">
-                <h1>{(this.state.category)?this.state.category.name:"No Category"}</h1>
+            <div className="p-6">
+                <h1>{(this.state.category)?this.state.category.name:"No Category"} Hello World</h1>
                 <p>{(this.state.category)?this.state.category.description:"No Description"}</p>
                 <ProductCard
                 productTitle="Microwave"
                 productDescription= "asdfasdf"
-                productPricePropTypes={23} 
+                productPricePropTypes="23" 
+                
                 />
                 <ProductCard />
                 <ProductCard />
@@ -49,3 +38,5 @@ export default class CategoryView extends Flux.DashView {
         );
     }
 }
+
+export default SearchResults; 
