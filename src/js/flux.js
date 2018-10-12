@@ -3,14 +3,14 @@ import Flux from "@4geeksacademy/react-flux-dash";
 
 const HOST = 'https://fierce-mountain-32300.herokuapp.com/api';
 
-export const getAllCategories = () => {
-    fetch(HOST + '/category')
+export const fetch = (entity) => {
+    fetch(HOST + '/'+entity)
       .then(function(response) {
         console.log(response.status);
         return response.json();
       })
       .then(function(incomingObject) {
-        Flux.dispatchEvent('categories', incomingObject);
+        Flux.dispatchEvent(entity, incomingObject);
       })
       .catch(function(error){
         console.log(error);
@@ -91,7 +91,7 @@ export const editContact = (contact) => {
 class MyStore extends Flux.DashStore {
     constructor(){
         super();
-        this.addEvent('categories');
+        this.addEvent('category');
     }
 }
 

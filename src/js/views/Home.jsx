@@ -27,9 +27,9 @@ export default class Home extends Flux.DashView {
   componentDidMount(){
         //This is getting the categories from the state & if there are categories
         //then subscribe
-        let categories = store.getState('categories');
+        let categories = store.getState('category');
         if(categories) this.setState({categories});
-        this.subscribe(store, 'categories', (categories) => {
+        this.subscribe(store, 'category', (categories) => {
             this.setState({ categories });
         });
     }
@@ -40,8 +40,8 @@ export default class Home extends Flux.DashView {
             {//* Navbar goes here.
             }
             <CarouselSlider
-            ImgUrl1={SchoolServingPng}
-            ImgUrl2={GhrsDesignPng}
+            ImgUrl1='https://cdnimg.webstaurantstore.com/images/site/new/slides/lg-vegalene-release-spray_m9ydux.jpg'
+            ImgUrl2='https://cdnimg.webstaurantstore.com/images/site/new/slides/lg-cambro-camwear.jpg'
             carouselLength={2}
             h3title1="Labor Day Blow Out"
             h3title2= "Catering to all Restaurant Needs"

@@ -13,14 +13,14 @@ export default class CategoryView extends Flux.DashView {
     }
     
     componentDidMount(){
-        let categories = store.getState('categories');
+        let categories = store.getState('category');
         if(categories) {
             let category = categories.find((c) => {
                 return (c.slug == this.props.match.params.category_slug);
               });
             this.setState({category});
         }
-        this.subscribe(store, 'categories', (categories) => {
+        this.subscribe(store, 'category', (categories) => {
             let category = categories.find((c) => {
                 return (c.slug == this.props.match.params.category_slug);
               });

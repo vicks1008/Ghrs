@@ -27,7 +27,8 @@ export default class Layout extends Flux.DashView {
     
     componentDidMount(){
         //This function fetches all categories from the database.
-        getAllCategories();
+        fetch('category');
+        fetch('product');
     }
     
     render() {
