@@ -12,18 +12,26 @@ export default class CategoryView extends Flux.DashView {
         };
     }
     
-    // componentDidMount(){
-    //     let categories = store.getState('categories');
-    //     let category = categories.find((c) => {
-    //         return (c.slug == this.props.match.params.category_slug);
-    //       });
-    //     this.setState({category});
-    // }
+    componentDidMount(){
+        let categories = store.getState('categories');
+        if(categories) {
+            let category = categories.find((c) => {
+                return (c.slug == this.props.match.params.category_slug);
+              });
+            this.setState({category});
+        }
+        this.subscribe(store, 'categories', (categories) => {
+            let category = categories.find((c) => {
+                return (c.slug == this.props.match.params.category_slug);
+              });
+            this.setState({category});
+        });
+    }
     
     render() {
         return (
-            <div className="p-6">
-                <h1>{(this.state.category)?this.state.category.name:"No Category"} Hello World</h1>
+            <div className="p-5">
+                <h1>{(this.state.category)?this.state.category.name:"No Category"}</h1>
                 <p>{(this.state.category)?this.state.category.description:"No Description"}</p>
                 <ProductCard />
                 <Link to="/">Back to home</Link>
