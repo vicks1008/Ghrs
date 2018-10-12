@@ -11,13 +11,17 @@ class NavbarComponent extends React.Component {
     constructor(){    
         super();
         this.state = {
-            search : ''
-    };
-}  
+            search : {value:''}
+        };
+    }  
     
     
   
     render() {
+       const handleChange = (e) => {
+           this.setState({value: e.target.value});
+       }; 
+        
         return(
             <div> 
                 <nav className="navbar navbar-default" role="navigation">
@@ -37,9 +41,15 @@ class NavbarComponent extends React.Component {
                     <input className="searchInput" 
                     type="text" 
                     placeholder="Search..."
-                    onChange=''
+                    //this value will show what the user is typing
+                    value= {this.state.value}
+                    //the value is working bc of the onChange!
+                    onChange={handleChange}
                     />
-                    <button className="button-search">
+                    {/*this button will gather the info and send the user to another view*/}
+                    <button 
+                    onClick={() =>this.props.history.push("/Search")}
+                    className="button-search">
                         <i className="fas fa-search"></i>
                     </button>
                 </form>

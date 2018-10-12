@@ -14,13 +14,9 @@ export default class CategoryView extends Flux.DashView {
         };
     }
     
-    // componentDidMount(){
-    //     let categories = store.getState('categories');
-    //     let category = categories.find((c) => {
-    //         return (c.slug == this.props.match.params.category_slug);
-    //       });
-    //     this.setState({category});
-    // }
+    componentDidMount(){
+        console.log(this.props.match.params.query);
+    }
     
     render() {
         return (
@@ -30,7 +26,8 @@ export default class CategoryView extends Flux.DashView {
                 <ProductCard
                 productTitle="Microwave"
                 productDescription= "asdfasdf"
-                productPricePropTypes={23} 
+                productPricePropTypes="23" 
+                
                 />
                 <ProductCard />
                 <ProductCard />
