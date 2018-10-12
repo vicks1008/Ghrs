@@ -6,13 +6,12 @@ import CarouselSlider from '../components/CarouselSlider.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import Specials from '../components/Specials.jsx';
 import AboutThisItem from '../components/AboutThisItem.jsx';
-import ProductCategory from '../components/ProductCategory.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
 import RatingStar from '../components/RatingStar.jsx';
 import CategoryList from '../components/CategoryList.jsx';
 import SchoolServingPng from '../../img/asset41.jpeg';
 import GhrsDesignPng from '../../img/asset42.png';
-import {getAllCategories, store} from "../flux.js";
+import {store} from "../flux.js";
 import  { Animation }  from 'mdbreact';
 import '../../styles/HomeStyles.scss';
 import ProductCardBanner from '../components/ProductCardBanner.jsx';
@@ -26,15 +25,12 @@ export default class Home extends Flux.DashView {
     }
   
   componentDidMount(){
-        //This function fetches all categories from the database.
-        getAllCategories();
         //This is getting the categories from the state & if there are categories
         //then subscribe
         let categories = store.getState('categories');
         if(categories) this.setState({categories});
         this.subscribe(store, 'categories', (categories) => {
             this.setState({ categories });
-            console.log(categories);
         });
     }
   

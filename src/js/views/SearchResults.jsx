@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard.jsx';
 import PropTypes from 'prop-types';
 
 
-export default class CategoryView extends Flux.DashView {
+class SearchResults extends Flux.DashView {
     constructor(){
         super();
         this.state = {
@@ -38,3 +38,5 @@ export default class CategoryView extends Flux.DashView {
         );
     }
 }
+
+export default SearchResults; 
