@@ -1,3 +1,7 @@
+:root {
+    --main-color:#42810c;
+}
+
 img {
     width: 250px;
 }
@@ -14,12 +18,14 @@ img {
     border-radius: 10px;
     font-size: 14px;
     font-family: inherit;
-    border: 2px solid #35904a;
+    border: 2px solid #40464c;
     color: #40464c;
+    background-color: #edf0ed;
 }
 .userButton {
-    color: #2e2e2e;
+    color: white;
     margin-right: 55px;
+    background-color: #40464c;
     
 }
 
@@ -47,7 +53,7 @@ img {
 
 .dropdown-content a {
     color: black;
-    padding: 8px 8px;
+    padding: 6px 8px;
     text-decoration: none;
     display: block;
 }
@@ -65,7 +71,7 @@ img {
 
 .searchBarContainer{
     position: relative;
-    background-color: #35904a;
+    background-color: var(--main-color);
 }
 
 
@@ -73,7 +79,7 @@ img {
   position: relative;
   margin: 10px auto;
   padding: 7px 10px;
-  border: 1px solid #40464c;
+  border: 1px solid #42810c;
   border-radius: 4px;
   outline: 0;
 }

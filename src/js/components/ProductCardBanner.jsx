@@ -25,20 +25,18 @@ class ProductCardBanner extends React.Component {
     ];
     
     return ( 
-        <div className="vet-spec-container">
-            <div className="product-header-container" >
-                <h3 className="productBannerHeader">Veteran&#x27;s Day Special</h3>
+        <div className="product-header-container" >
+            <h3 className="productBannerHeader">Veteran&#x27;s Day Special</h3>
+            <div className="flex-row">
+                <div className="flex-col imgprod"><img src={SpecImage1} className="img1" alt="..."/></div>
+                <div className="flex-col imgprod"><img src={SpecImage2} className="img2" alt="..."/></div>
             </div>
             <div className="flex-row">
-                <div className="flex-col"><img src={SpecImage1} className="img1" alt="..."/></div>
-                <div className="flex-col"><img src={SpecImage2} className="img2" alt="..."/></div>
-            </div>
-            <div className="flex-row">
-                <div className="flex-col"><img src={SpecImage3} className="img3" alt="..."/></div>
-                <div className="flex-col"><img src={SpecImage4} className="img4" alt="..."/></div>
+                <div className="flex-col imgprod"><img src={SpecImage3} className="img3" alt="..."/></div>
+                <div className="flex-col imgprod"><img src={SpecImage4} className="img4" alt="..."/></div>
             </div>
         </div>
-    );
+    );  
   }
 }
 

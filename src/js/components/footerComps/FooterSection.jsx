@@ -56,7 +56,6 @@ export default class FooterSection extends React.Component {
 
                             </div>
 
-
                         </Col>
                     </Row>
                 </Container>

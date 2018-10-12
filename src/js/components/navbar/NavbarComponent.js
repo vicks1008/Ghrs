@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GeneralLogo from '../../../img/general-logo-with-tag.png';
+import Logoimg from '../../../img/the_logo.png';
 import { browserHistory, withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom'; 
@@ -25,7 +26,7 @@ class NavbarComponent extends React.Component {
         return(
             <div> 
                 <nav className="navbar navbar-default" role="navigation">
-                    <a onClick={() =>this.props.history.push("/home")} className="navbar-brand logo" href="#"><img src={GeneralLogo} /></a>
+                    <a onClick={() =>this.props.history.push("/home")} className="navbar-brand logo" href="#"><img src={Logoimg} /></a>
                     <div className="menuButtons">
                         <button onClick={() =>this.props.history.push("/cart")} className="shoppingCart"><i className="fas fa-shopping-cart"></i></button>
                         <div className="dropdown show">

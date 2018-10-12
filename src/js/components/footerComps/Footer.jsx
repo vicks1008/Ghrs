@@ -40,7 +40,6 @@
 //                              </div>
 //
 
-import '../../../styles/footerStylesheet.scss';
 import React from 'react';
 import { Col, Container, Row, Footer } from 'mdbreact';
 
@@ -48,7 +47,7 @@ class FooterPage extends React.Component {
     render(){
         return(
 
-            <Footer color="#1b5e20 green darken-4 "className="font-small pt-0">
+            <Footer color="#42810c green darken-4 "className="font-small pt-0">
                 <Container>
                     <Row className="pt-5 mb-3 text-center d-flex justify-content-center">
                         <Col md="2" className="b-3">
@@ -70,7 +69,7 @@ class FooterPage extends React.Component {
                     <hr className="rgba-white-light" style={{margin: '0 15%'}}/>
                     <Row className="d-flex text-center justify-content-center mb-md-0 mb-4">
                         <Col md="8" sm="12" className="mt-5">
-                            <p style={{lineHeight: '1.7rem'}}>GHRS</p>
+                            <p style={{lineHeight: '1.7rem'}}>Web Restaurant</p>
                         </Col>
                     </Row>
                     <div className="container justify-content-center">
@@ -104,7 +103,7 @@ class FooterPage extends React.Component {
                 </Container>
                 <div className="footer-copyright text-center py-3">
                     <Container fluid>
-                        &copy; {(new Date().getFullYear())} Copyright: <a href="#"> General Hotel & Restaurant Supply Corp. -  All rights reserved.</a>
+                        &copy; {(new Date().getFullYear())} Copyright: <a href="#">Web Restaurant -  All rights reserved.</a>
                     </Container>
                 </div>
 

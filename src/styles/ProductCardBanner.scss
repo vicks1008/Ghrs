@@ -11,9 +11,8 @@
 }
 
 .flex-col {
-  margin: 6px;
-  padding: 10px;
-  display: flex;
+  margin: 16px;
+  //padding: 10px;
   justify-content: center;
   align-items: center;
   flex: 1;
@@ -33,6 +32,7 @@
   }
 }
 
+
 .vet-spec-container{
     max-width: 75%;
 }
@@ -40,10 +40,16 @@
 
 //HEADER -----------------------------------
 .productBannerHeader{
-    font-family: 'Bitter', serif;
-    padding-top: 10px;
-    text-align: center;
+    font-family: inherit;
+    font-weight: 600;
+    font-size:3vw;
+    color: #3b3d3b;
+    padding-top: 8px;
 }
 
 .product-header-container {
+}
+
+body {
+  background-color: #edf0ed;
 }

@@ -35,13 +35,16 @@ class FooterPage extends React.Component {
                     <hr className="clearfix d-md-none rgba-white-light" style={{margin: '10% 15% 5%'}}/>
                     <Row className="pb-3">
                         <Col md="12">
-                            <div className="mb-5 flex-center">
+                            <div className="mb-5 flex-center iconList">
+                               <div className="mb-5 flex-center">
                                 <a className="fb-ic"><i className="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
                                 <a className="tw-ic"><i className="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
                                 <a className="gplus-ic"><i className="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
                                 <a className="li-ic"><i className="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
                                 <a className="ins-ic"><i className="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
                                 <a className="pin-ic"><i className="fa fa-pinterest fa-lg white-text"> </i></a>
+
+                            </div>
                             </div>
                         </Col>
                     </Row>
