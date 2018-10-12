@@ -31,7 +31,7 @@ class Profile(models.Model):
 class Product(models.Model):
     img = models.CharField(max_length=150, default="")
     title = models.CharField(max_length=50, default="")
-    description = models.CharField(max_length=50, default="")
+    description = models.TextField(max_length=1000, default="")
     productRating = models.IntegerField(default=0, blank=True)
     manufacturer = models.CharField(max_length=50, default="")
     price = models.IntegerField(default=0, blank=True)
@@ -43,7 +43,7 @@ class Product(models.Model):
 #model, extends from Model 
 class Category(models.Model):
     name = models.CharField(max_length=150, db_index=True)
-    description = models.CharField(max_length=250, default="")
+    description = models.TextField(max_length=1000, default="")
     slug = models.SlugField(max_length=150, unique=True ,db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
