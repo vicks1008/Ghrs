@@ -66,6 +66,10 @@ export default class Home extends Flux.DashView {
             </ul>
             {//* Product Cards go here.
             }
+            <Animation type="slideInRight" delay="1.2s">
+                <ProductCardBanner/>
+                <ProductCard />
+            </Animation>
             <Animation type="slideInRight" delay="1.3s">
                 <AboutThisItem 
                     productDetails=""
