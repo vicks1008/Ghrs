@@ -44,6 +44,7 @@ export default class CategoryView extends Flux.DashView {
                 productPricePropTypes={product.price} 
                 originalProduct={product}
                 image={product.img}
+                slug={product.slug}
             />)
         );
         return (

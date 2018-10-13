@@ -13,22 +13,28 @@ export default class ProductCard extends React.Component {
                     <thead>
                         {/*some css styling inline*/}
                         <tr>
-                            <th style={{width: '50%'}}>{this.props.productTitle}</th>
-                            <th style={{width: '10%'}}></th>
+                            <th style={{width: '100%'}}>
+                                <Link to={'product/'+ this.props.slug}>
+                                    <h3 
+                                    className="product-card-title"
+                                    >
+                                        {this.props.productTitle}</h3>
+                                </Link>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-th="Product">
+                            <td data-th="Product" style={{width: '20%'}}>
                                 <div className="text-left">
                                     <img src={this.props.image} alt="" className="img-thumbnail"/>
                                 </div>
                             </td>
-                            <td>
-                                <small className = "productDescription">{this.props.productDescription}</small>
+                            <td style={{width: '50%'}}>
+                                <small className="productDescription">{this.props.productDescription}</small>
                             </td>
-                            <td data-th="Price">{this.props.productPrice}</td>
-                            <td className="actions" data-th="">
+                            <td data-th="Price" style={{width: '15%'}}>{this.props.productPrice}</td>
+                            <td className="actions" data-th="" style={{width: '15%'}}>
                                 <button 
                                     onClick={() => addProductToShopingCart(this.props.originalProduct)}
                                     className="btn btn-dark btn-sm"><i className="fas fa-shopping-cart"></i></button>
@@ -50,5 +56,6 @@ ProductCard.propTypes =
     productDescription: PropTypes.string, 
     productPrice: PropTypes.number,
     originalProduct: PropTypes.object,
-    image: PropTypes.string
+    image: PropTypes.string,
+    slug: PropTypes.string
 }; 

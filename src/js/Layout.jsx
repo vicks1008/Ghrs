@@ -56,6 +56,7 @@ export default class Layout extends Flux.DashView {
                             {/* you can also define variables in the url, this url will match for any product*/}
                             <Route exact path="/category/:category_slug" component={CategoryView} />
                             <Route exact path="/category/:category_slug/:subcategory_slug" component={Home} />
+                            <Route exact path="category/product/:product_slug" component={Product} />
                             <Route exact path="/product/:product_slug" component={Product} />
                             <Route exact path="/product" component={Product} />
                             <Route exact path="/cart" component={ShoppingCart} />

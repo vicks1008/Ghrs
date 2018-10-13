@@ -13,6 +13,7 @@
     background-color: #4caf50;
     border-radius: 10px !important;
     color: #FFF;
+    padding: 1.75rem 1.25rem;
 }
 
 button.list-group-item {
@@ -26,10 +27,23 @@ button.list-group-item {
     color: #FFF;
 }
 
+.category-animated-div {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    -webkit-columns: 260px 2; /* Chrome, Safari, Opera */
+    -moz-columns: 260px 2; /* Firefox */
+    columns: 260px 2;
+    column-gap: 350px;
+}
+
 ul.category-animated-div {
     width: 300px;
     margin: 0 auto;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
+
 
 .hvr-grow-shadow {
   display: inline-block;
