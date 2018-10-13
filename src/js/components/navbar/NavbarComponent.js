@@ -16,7 +16,7 @@ class NavbarComponent extends React.Component {
             username: 'Account',
             isActive: false,
             productCount: 0,
-            search : {value:''}
+            value: ''
         };
     }  
     
@@ -44,9 +44,10 @@ class NavbarComponent extends React.Component {
                   productCount: 0,
                   isActive: false
               });
-          
         });
-        
+        this.setState({
+            value: this.props.match.params.query
+        });
     }
   
     render() {
@@ -86,7 +87,7 @@ class NavbarComponent extends React.Component {
                     />
                     {/*this button will gather the info and send the user to another view*/}
                     <button 
-                    onClick={() =>this.props.history.push("/Search")}
+                    onClick={() =>this.props.history.push("/search/"+this.state.value)}
                     className="button-search">
                         <i className="fas fa-search"></i>
                     </button>
@@ -98,7 +99,8 @@ class NavbarComponent extends React.Component {
 export default withRouter(NavbarComponent) ;
 NavbarComponent.propTypes =
 {
-    history: PropTypes.object
+    history: PropTypes.object,
+    match: PropTypes.object
 }; 
 
 
