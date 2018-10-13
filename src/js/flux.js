@@ -1,9 +1,10 @@
 /* global fetch */
 import Flux from "@4geeksacademy/react-flux-dash";
+import {Session} from 'bc-react-session';
 
-const HOST = 'https://fierce-mountain-32300.herokuapp.com/api';
+const HOST = 'https://whispering-waters-19648.herokuapp.com/api';
 
-export const fetch = (entity) => {
+export const retrieve = (entity, callback=null) => {
     fetch(HOST + '/'+entity)
       .then(function(response) {
         console.log(response.status);
@@ -11,10 +12,33 @@ export const fetch = (entity) => {
       })
       .then(function(incomingObject) {
         Flux.dispatchEvent(entity, incomingObject);
+        if(callback) callback();
       })
       .catch(function(error){
         console.log(error);
       });
+};
+
+export const login = () => {
+  Session.start({
+    payload: {
+      username: 'victor',
+      products: []
+    },
+    expiration: 86400000 // (optional) defaults to 1 day
+  });
+};
+
+export const logout = () => {
+  Session.destroy();
+};
+
+export const addProductToShopingCart = (product) => {
+  let session = Session.get();
+  Session.setPayload({
+    username: session.payload.username,
+    products: session.payload.products.concat([product])
+  });
 };
 
 export const addContact = (contact) => {
@@ -91,7 +115,20 @@ export const editContact = (contact) => {
 class MyStore extends Flux.DashStore {
     constructor(){
         super();
-        this.addEvent('category');
+        this.addEvent('category', function(categories){
+          if(!Array.isArray(categories)) return [];
+          
+          return categories.map((cat) => {
+            
+            cat.products = cat.products.map((pId) => {
+                const allproducts = store.getState('product');
+                return allproducts.find(p => p.id == pId );
+            });
+            
+            return cat;
+          });
+        });
+        this.addEvent('product');
     }
 }
 

@@ -9,8 +9,6 @@ import AboutThisItem from '../components/AboutThisItem.jsx';
 import SimilarItem from '../components/SimilarItem.jsx';
 import RatingStar from '../components/RatingStar.jsx';
 import CategoryList from '../components/CategoryList.jsx';
-import SchoolServingPng from '../../img/asset41.jpeg';
-import GhrsDesignPng from '../../img/asset42.png';
 import {store} from "../flux.js";
 import  { Animation }  from 'mdbreact';
 import '../../styles/HomeStyles.scss';
@@ -68,10 +66,6 @@ export default class Home extends Flux.DashView {
             </ul>
             {//* Product Cards go here.
             }
-            <Animation type="slideInRight" delay="1.2s">
-                <ProductCardBanner/>
-                <ProductCard />
-            </Animation>
             <Animation type="slideInRight" delay="1.3s">
                 <AboutThisItem 
                     productDetails=""

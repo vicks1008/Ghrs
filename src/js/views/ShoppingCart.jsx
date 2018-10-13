@@ -2,8 +2,24 @@ import React from 'react';
 //import Validator from 'validator';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import { Session } from 'bc-react-session';
 
 class ShoppingCart extends React.Component {
+    constructor(){    
+        super();
+        this.state = {
+            cartProducts: []
+        };
+    }  
+    
+    componentDidMount(){
+        
+        const session = Session.get();
+        if(session.active){
+            this.setState({
+                cartProducts: session.payload.products
+            });
+    }}
     render(){
         return(
         

@@ -17,7 +17,7 @@ import FooterPage from './components/footerComps/Footer.jsx';
 import CategoryView from './views/CategoryView.jsx';
 import  { Animation }  from 'mdbreact';
 import Login from "./views/Login.jsx";
-import {getAllCategories} from "./flux.js";
+import {retrieve} from "./flux.js";
 import SearchResults from './views/SearchResults.jsx';
 
 /**
@@ -28,8 +28,10 @@ export default class Layout extends Flux.DashView {
     
     componentDidMount(){
         //This function fetches all categories from the database.
-        fetch('category');
-        fetch('product');
+        retrieve('product', function(){
+            retrieve('category');
+        });
+        
     }
     
     render() {
@@ -61,7 +63,7 @@ export default class Layout extends Flux.DashView {
                             <Route exact path="/about-us" component={Home} />
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/login" component={Login} />
-                            <Route exact path="/seach/:query" component={SearchResults} />
+                            <Route exact path="/search/:query" component={SearchResults} />
                             
                             {/* for the last Rout we don't specify any path because we want it to render if no other path have matched */}
                             <Route render={() => <h1>Not found!</h1>} />

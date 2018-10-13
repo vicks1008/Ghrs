@@ -26,41 +26,30 @@ export default class CategoryView extends Flux.DashView {
             this.setState({category});
         }
         this.subscribe(store, 'category', (categories) => {
-            let category = categories.find((c) => {
+            const category = categories.find((c) => {
                 return (c.slug == this.props.match.params.category_slug);
               });
-            this.setState({category});
+            this.setState({ category, products: category.products });
         });
         
-        
-        
-        //get the products from the store
-        let products = store.getState('product');
-        if(products != null) {
-            let category = categories.find((c) => {
-                return (c.slug == this.props.match.params.category_slug);
-              });
-            this.setState({category});
-        }
-        this.subscribe(store, 'product', (products) => {
-            const subsetOfProducts = products.filter(prod => prod.category == 1);
-            this.setState({products: subsetOfProducts});
-        });
     }
     
     render() {
-        // const producCards = this.state.products.map((product) => 
-        //     // (<ProductCard
-        //     //     productTitle={product.title}
-        //     //     productDescription={product.description}
-        //     //     productPricePropTypes={product.price} 
-        //     // />) NEED TO HARD CODE PRODUCTS 
-        // //);
+        
+        let producCards = [];
+        if(this.state.products) producCards = this.state.products.map((product, i) => 
+            (<ProductCard key={i}
+                productTitle={product.title}
+                productDescription={product.description}
+                productPricePropTypes={product.price} 
+                originalProduct={product}
+            />)
+        );
         return (
             <div className="p-5">
                 <h1>{(this.state.category)?this.state.category.name:"No Category"}</h1>
                 <p>{(this.state.category)?this.state.category.description:"No Description"}</p>
-                {/*{producCards}*/}
+                {producCards}
                 <Link to="/">Back to home</Link>
             </div>
         );
