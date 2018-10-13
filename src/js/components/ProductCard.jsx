@@ -26,7 +26,7 @@ export default class ProductCard extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: '50%'}}>
-                                <img src={this.props.image} alt="" className="img-thumbnail float-left"/>
+                                <img src={this.props.image} alt="" className="img-thumbnail float-left prodthumb"/>
                                 <small className="productDescription">{this.props.productDescription}</small>
                             </td>
                             <td data-th="Price" style={{width: '15%'}}>{this.props.productPrice}</td>
