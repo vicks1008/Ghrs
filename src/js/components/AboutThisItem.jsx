@@ -9,17 +9,19 @@ class AboutThisItem extends Component {
   render() {
     return (
         <div>
-            <nav>
-                <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Details</a>
-                    <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Shipping</a>
-                    <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Questions</a>
+            <div className="grid group invoice-parties invoice-grid">
+                <div className="grid-1-2">
+                    <div className="invoice-module">
+                        <h3 className="boxTitle"><b>D E S I G N</b></h3>
+                        <pre>We can help turn your concept into reality!</pre>
+                    </div>
                 </div>
-            </nav>
-            <div className="tab-content" id="nav-tabContent-center">
-                <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">{this.props.productDetails}</div>
-                <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">{this.props.productShipping}</div>
-                <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">{this.props.productQuestions}</div>
+                <div className="grid-1-2">
+                    <div className="invoice-module">
+                        <h3 className="boxTitle"><b>Q U O T E S</b></h3>
+                        <pre>Get custom quotes and package deals from our experts.</pre>
+                    </div>
+                </div>
             </div>
         </div>
     );

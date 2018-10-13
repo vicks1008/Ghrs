@@ -1,28 +1,17 @@
-.flex-row {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.flex-col {
-  margin: 16px;
-  //padding: 10px;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  flex-direction: column;
-  box-sizing:border-box;
-}
-
-@media (max-width:767px) {
-  .flex-col {
-    flex-basis: calc(50% - 12px);
-  }
+.brands {
+  display: table-cell;
+  vertical-align: middle;
+  text-align:center;
+  margin-left: 5%;
+  width: 150px;
+    
 }
 
 
-
-.imgprod{
-    width: 150px;
+.brandBannerHeader {
+  font-family: inherit;
+  font-weight: 600;
+  font-size:1vw;
+  color: #3b3d3b;
+  padding-top: 8px;
 }

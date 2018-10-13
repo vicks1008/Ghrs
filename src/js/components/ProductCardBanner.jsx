@@ -1,43 +1,24 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import SpecImage1 from '../../img/spec_n3.jpg';
-import SpecImage2 from '../../img/spec_44.jpg';
-import SpecImage3 from '../../img/spc_67.jpg';
-import SpecImage4 from '../../img/spec_ship.jpg';
 
 class ProductCardBanner extends React.Component {
-  render() {
-    
-    const items = [
-      {
-        src: {SpecImage1}
-      },
-      
-      {
-        src: {SpecImage2}
-      },
-      {
-        src: {SpecImage3}
-      }, 
-      {
-        src: {SpecImage4}
-      }
-    ];
-    
-    return ( 
-        <div className="product-header-container" >
-            <h3 className="productBannerHeader">Veteran&#x27;s Day Special</h3>
-            <div className="flex-row">
-                <div className="flex-col imgprod"><img src={SpecImage1} className="img1" alt="..."/></div>
-                <div className="flex-col imgprod"><img src={SpecImage2} className="img2" alt="..."/></div>
+    render() {
+        return (
+            <div className="container prodscontainer">
+                {/* VERSION 2 */}
+                <h3 className="productBannerHeader"><b>Veteran&#x27;s Day Special</b></h3>
+                <div className="row">
+                    <div className="col-sm"><img className="card-img"  alt="stuff" src="https://bit.ly/2PrXaT6"/></div>
+                    <div className="col-sm"><img className="card-img"  alt="stuff" src="https://bit.ly/2PrYZ2h"/></div>
+                    <div className="col-sm"><img className="card-img"  alt="stuff" src="https://bit.ly/2CbRuIU"/></div>
+                </div>
+                <div className="row">
+                    <div className="col-sm"><img className="card-img"  alt="stuff" src="https://bit.ly/2Cc9Dq3"/></div>
+                    <div className="col-sm"><img className="card-img"  alt="stuff" src="https://cdnimg.webstaurantstore.com/images/site/new/slides/hobart-dish-washers-mobile.jpg"/></div>
+                    <div className="col-sm"><img className="card-img"  alt="stuff" src="https://bit.ly/2EfyPi4"/></div>
+                </div>
             </div>
-            <div className="flex-row">
-                <div className="flex-col imgprod"><img src={SpecImage3} className="img3" alt="..."/></div>
-                <div className="flex-col imgprod"><img src={SpecImage4} className="img4" alt="..."/></div>
-            </div>
-        </div>
-    );  
-  }
+        );
+    }
 }
 
 export default ProductCardBanner;
