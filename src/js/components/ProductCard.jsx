@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { addProductToShopingCart } from '../flux.js';
 
 class ProductCard extends React.Component {
 
@@ -27,7 +28,9 @@ class ProductCard extends React.Component {
                         </td>
                         <td data-th="Price">{this.props.productPrice}</td>
                         <td className="actions" data-th="">
-                            <button className="btn btn-dark btn-sm"><i className="fas fa-shopping-cart"></i></button>
+                            <button 
+                                onClick={() => addProductToShopingCart(this.props.originalProduct)}
+                                className="btn btn-dark btn-sm"><i className="fas fa-shopping-cart"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -46,5 +49,6 @@ ProductCard.propTypes =
 {
     productTitle: PropTypes.string,
     productDescription: PropTypes.string, 
-    productPrice: PropTypes.number 
+    productPrice: PropTypes.number,
+    originalProduct: PropTypes.object 
 }; 

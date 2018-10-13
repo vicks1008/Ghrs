@@ -5,18 +5,49 @@ import { browserHistory, withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom'; 
 import { Link } from "react-router-dom";
-
+import {Session} from 'bc-react-session';
+import { logout } from '../../flux.js';
 
 
 class NavbarComponent extends React.Component {
     constructor(){    
         super();
         this.state = {
+            username: 'Account',
+            isActive: false,
+            productCount: 0,
             search : {value:''}
         };
     }  
     
-    
+    componentDidMount(){
+        
+        const session = Session.get();
+        if(session.active){
+            this.setState({
+                username: session.payload.username,
+                productCount: session.payload.products.length,
+                isActive: true
+            });
+        }
+        const unsubscribe = Session.onChange((session) => {
+          if(session.active){
+              this.setState({
+                  username: session.payload.username,
+                  productCount: session.payload.products.length,
+                  isActive: true
+              });
+          }
+          else
+              this.setState({
+                  username: 'Account',
+                  productCount: 0,
+                  isActive: false
+              });
+          
+        });
+        
+    }
   
     render() {
        const handleChange = (e) => {
@@ -28,12 +59,18 @@ class NavbarComponent extends React.Component {
                 <nav className="navbar navbar-default" role="navigation">
                     <a onClick={() =>this.props.history.push("/home")} className="navbar-brand logo" href="#"><img src={Logoimg} /></a>
                     <div className="menuButtons">
-                        <button onClick={() =>this.props.history.push("/cart")} className="shoppingCart"><i className="fas fa-shopping-cart"></i></button>
+                        <button onClick={() =>this.props.history.push("/cart")} className="shoppingCart">{this.state.productCount}<i className="fas fa-shopping-cart"></i></button>
                         <div className="dropdown show">
-                            <button className="userButton">Account <i className="fas fa-user fa-1x"></i></button>
+                            <button className="userButton">{this.state.username} <i className="fas fa-user fa-1x"></i></button>
                             <div className="dropdown-content">
-                                <a onClick={() =>this.props.history.push("/register")}href="#">Sign Up</a>
-                                <a onClick={() =>this.props.history.push("/login")}href="#">Login</a>
+                                {(!this.state.isActive) ? 
+                                    <span>
+                                        <a onClick={() =>this.props.history.push("/register")}href="/">Sign Up</a>
+                                        <a onClick={() =>this.props.history.push("/login")}href="/">Login</a>
+                                    </span>
+                                    :
+                                    <a onClick={() => logout()}href="/">Logout</a>
+                                }
                             </div>
                         </div>
                     </div>    

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../../styles/login.scss';
-
+import { login } from '../flux.js';
 
 class Login extends React.Component {
     constructor(){
@@ -46,7 +46,14 @@ class Login extends React.Component {
             </div>
         </div>
         <hr></hr>
-        <Link to ="/generalhotel"><button type="button" className="btn btn-dark btn-block mb-3">Sign In</button></Link>
+        <Link to ="/generalhotel">
+            <button 
+                type="button" 
+                className="btn btn-dark btn-block mb-3"
+                onClick={() => login()}
+            >
+                Sign In
+            </button></Link>
         <Link to ="/register"><button type="button" className="btn btn-outline-dark btn-block">Create Account</button></Link>
 
     </div>
