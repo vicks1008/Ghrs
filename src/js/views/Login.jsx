@@ -46,7 +46,7 @@ class Login extends React.Component {
             </div>
         </div>
         <hr></hr>
-        <Link to ="/generalhotel">
+        <Link to ="/">
             <button 
                 type="button" 
                 className="btn btn-dark btn-block mb-3"

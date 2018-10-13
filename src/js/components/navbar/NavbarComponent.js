@@ -65,11 +65,11 @@ class NavbarComponent extends React.Component {
                             <div className="dropdown-content">
                                 {(!this.state.isActive) ? 
                                     <span>
-                                        <a onClick={() =>this.props.history.push("/register")}href="/">Sign Up</a>
-                                        <a onClick={() =>this.props.history.push("/login")}href="/">Login</a>
+                                        <a onClick={() =>this.props.history.push("/register")}href="#">Sign Up</a>
+                                        <a onClick={() =>this.props.history.push("/login")}href="#">Login</a>
                                     </span>
                                     :
-                                    <a onClick={() => logout()}href="/">Logout</a>
+                                    <a onClick={() => logout()}href="#">Logout</a>
                                 }
                             </div>
                         </div>
