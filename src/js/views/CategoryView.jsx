@@ -36,20 +36,21 @@ export default class CategoryView extends Flux.DashView {
     
     render() {
         
-        let producCards = [];
-        if(this.state.products) producCards = this.state.products.map((product, i) => 
+        let productCards = [];
+        if(this.state.products) productCards = this.state.products.map((product, i) => 
             (<ProductCard key={i}
                 productTitle={product.title}
                 productDescription={product.description}
                 productPricePropTypes={product.price} 
                 originalProduct={product}
+                image={product.img}
             />)
         );
         return (
             <div className="p-5">
                 <h1>{(this.state.category)?this.state.category.name:"No Category"}</h1>
                 <p>{(this.state.category)?this.state.category.description:"No Description"}</p>
-                {producCards}
+                {productCards}
                 <Link to="/">Back to home</Link>
             </div>
         );
