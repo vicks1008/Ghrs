@@ -56,7 +56,7 @@ export default class Home extends Flux.DashView {
                     <Animation type="slideInRight" delay="1.1s">
                         {this.state.categories.map(c => (
                             <Link 
-                            to={'category/'+ c.slug} 
+                            to={'/category/'+ c.slug} 
                             key={c.id} 
                             >
                                 <ListGroupItem className="hvr-grow-shadow">{c.name}</ListGroupItem>

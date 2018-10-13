@@ -1,39 +1,23 @@
 import React from "react";
 import Flux from "@4geeksacademy/react-flux-dash";
-import { Link } from "react-router-dom";
+import { Link, store } from "react-router-dom";
 import PropTypes from 'prop-types';
 import ReactImageMagnify from 'react-image-magnify';
 import '../../styles/ProductStyles.scss';
-
-const imageBaseUrl = 'https://s3-us-west-1.amazonaws.com/react-package-assets/images/';
-const images = [
-  {name: 'wristwatch_355.jpg', vw: '355w'},
-  {name: 'wristwatch_481.jpg', vw: '481w'},
-  {name: 'wristwatch_584.jpg', vw: '584w'},
-  {name: 'wristwatch_687.jpg', vw: '687w'},
-  {name: 'wristwatch_770.jpg', vw: '770w'},
-  {name: 'wristwatch_861.jpg', vw: '861w'},
-  {name: 'wristwatch_955.jpg', vw: '955w'},
-  {name: 'wristwatch_1033.jpg', vw: '1033w'},
-  {name: 'wristwatch_1112.jpg', vw: '1112w'},
-  {name: 'wristwatch_1192.jpg', vw: '1192w'},
-  {name: 'wristwatch_1200.jpg', vw: '1200w'}
-];
 
 export default class Product extends Flux.DashView {
     constructor(){
         super();
         this.state = {
+            products: null,
             magnifiedImagePoperties: {
                 smallImage: {
-                  alt: 'Wristwatch by Ted Baker London',
                   isFluidWidth: true,
-                  src: `${imageBaseUrl}wristwatch_1033.jpg`,
+                  src: null,
                   sizes: '(min-width: 800px) 33.5vw, (min-width: 415px) 50vw, 100vw'
                 },
                 largeImage: {
-                  alt: 'Wristwatch by Ted Baker London',
-                  src: `${imageBaseUrl}wristwatch_1200.jpg`,
+                  src: null,
                   width: 1200,
                   height: 1800
                 },
@@ -44,31 +28,44 @@ export default class Product extends Flux.DashView {
         };
     }
     
-    get srcSet() {
-        return images.map(image => {
-        return `${imageBaseUrl}${image.name} ${image.vw}`;
-        }).join(', ');
+    componentDidMount(){
+        
+        //get the categories from the store
+        let products = store.getState('products');
+        if(products) {
+            let product = products.find((p) => {
+                return (p.slug == this.props.match.params.product_slug);
+              });
+            this.setState({ products: product });
+        }
+        this.subscribe(store, 'product', (products) => {
+            const product = products.find((p) => {
+                return (p.slug == this.props.match.params.product_slug);
+              });
+            this.setState({ products: product });
+        });
+        console.log({products});
     }
     
     render(){
         return (
             <div className="product-container p-5">
-                <h1>Product: {this.props.productName}</h1>
+                <h1>Product: {this.state.products.title}</h1>
                      
-                <p>Description: {this.props.productDescription}</p> 
+                <p>Description: {this.state.products.description}</p> 
                 
                 <div className="row">      
                     <div className="col-4">
                         <ul className="product-image-thumbnail-list">
                             <li>
                                 <img 
-                                src='https://cdnimg.webstaurantstore.com/images/products/small/50487/500928.jpg'
+                                src={this.state.products.image}
                                 onClick={() => this.setState({
                                     magnifiedImagePoperties: {
                                         smallImage: {
                                           alt: '',
                                           isFluidWidth: true,
-                                          src: 'https://cdnimg.webstaurantstore.com/images/products/small/50487/500928.jpg',
+                                          src: this.state.products.image,
                                           sizes: '(min-width: 800px) 33.5vw, (min-width: 415px) 50vw, 100vw'
                                         },
                                         largeImage: {
