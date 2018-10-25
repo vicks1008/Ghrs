@@ -1,34 +1,19 @@
-# Hello World with React + Flux
+# Greetings World!
 
-This boilerplate is intended for 4Geeks Academy students when doing projects with React.js using Flux.
+This e-commerce web restaurant was made with:
 
-## Installation
+ - React Flux 
+ - React J.S 
+ - Javascript
+ - HTML
+ - CSS
+ - Python
+ - Django
+ - Postgresql
+ 
+This is a fully functioning e-commerce that 
+consist of a  search bar, categories, shopping cart, registering users and much more. It's a combination of front end and back end technology. 
 
-##### 1. Make sure you have node 8+ and the breathecode-cli
-```
-$ nvm i 8
-```
 
-##### 2. Using the breathecode-cli:
-```
-$ bc start:flux -r
-```
-Note: if you don't have the breathecode-cli, [here are the installation instructions](https://github.com/breatheco-de/breathecode-cli).
-
-##### 3. Install the npm dependencies:
-```
-$ npm install
-```
-
-##### 4. Start the development server
-```
-$ npm run c9
-```
-
-That is it! Start coding your ReactJS+Flux application.
-
-Note: If you ever want to manually install all of this read the [MANUAL.md file.](/MANUAL.md)
-
-### REMEMBER:
-
-The application flow starts at **index.js**, you have to import any other files or assets into index.js in order for webpack to include them in the bundle.
+Happy Coding!   
+:smile:
